@@ -34,13 +34,7 @@ export default function RCDLandingPage() {
       gap: responsive("4rem", "1.5rem"),
       alignItems: "center",
     } as React.CSSProperties);
-    const stack2 = (colsDesktop = "1fr 1fr 1fr", colsMobile = "1fr") =>
-    ({
-      display: "grid",
-      gridTemplateColumns: responsive(colsDesktop, colsMobile),
-      gap: responsive("4rem", "1.5rem"),
-      alignItems: "center",
-    } as React.CSSProperties);
+   
 
   const padY = responsive("6rem", "4rem");
   const padX = responsive("2rem", "1rem");
