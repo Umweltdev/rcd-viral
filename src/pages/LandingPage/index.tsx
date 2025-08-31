@@ -1060,7 +1060,7 @@ export default function RCDLandingPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: responsive("repeat(3, 1fr)", "1fr"),
+            gridTemplateColumns: responsive("repeat(3, 1fr)", "repeat(1,1fr)"),
             gap: responsive("1.5rem", "1rem"),
           }}
         >
