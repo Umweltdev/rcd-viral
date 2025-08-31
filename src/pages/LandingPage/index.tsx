@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {
-    
-    X
-} from "lucide-react"
+import { X } from "lucide-react";
 export default function RCDLandingPage() {
-  const [activeFAQ, setActiveFAQ] = useState<number|null>(null);
+  const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   //const [activeTab, setActiveTab] = useState("vector");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,14 +16,13 @@ export default function RCDLandingPage() {
   }, []);
   useEffect(() => {
     const compute = () => setIsMobile(window.innerWidth < 768);
-    
+
     compute();
-    
+
     window.addEventListener("resize", compute);
-    
-    
-    return () => {window.removeEventListener("resize", compute);
-      
+
+    return () => {
+      window.removeEventListener("resize", compute);
     };
   }, []);
   const responsive = <T,>(desktop: T, mobile: T) =>
@@ -103,7 +98,6 @@ export default function RCDLandingPage() {
       display: "flex",
       alignItems: "center",
       gap: "0.5rem",
-      
     },
     hamburger: {
       display: responsive("none", "flex"),
@@ -173,7 +167,6 @@ export default function RCDLandingPage() {
       transition: "all 0.3s ease",
       display: "inline-block",
       width: responsive("auto", "100%"),
-       
     },
 
     // Typography
@@ -323,12 +316,29 @@ export default function RCDLandingPage() {
             style={styles.hamburger}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (<X size={24} color="#8b5cf6" />):(
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="6" width="18" height="2" rx="1" fill="#8b5cf6" />
-              <rect x="3" y="11" width="18" height="2" rx="1" fill="#8b5cf6" />
-              <rect x="3" y="16" width="18" height="2" rx="1" fill="#8b5cf6" />
-            </svg>)}
+            {mobileMenuOpen ? (
+              <X size={24} color="#8b5cf6" />
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="6" width="18" height="2" rx="1" fill="#8b5cf6" />
+                <rect
+                  x="3"
+                  y="11"
+                  width="18"
+                  height="2"
+                  rx="1"
+                  fill="#8b5cf6"
+                />
+                <rect
+                  x="3"
+                  y="16"
+                  width="18"
+                  height="2"
+                  rx="1"
+                  fill="#8b5cf6"
+                />
+              </svg>
+            )}
           </button>
         </div>
         <div style={styles.mobileMenu}>
@@ -429,7 +439,13 @@ export default function RCDLandingPage() {
               </div>
             </div>
 
-            <div style={{ display: responsive("row", "column"), gap: "1rem", marginBottom: "2rem" }}>
+            <div
+              style={{
+                display: responsive("row", "column"),
+                gap: "1rem",
+                marginBottom: "2rem",
+              }}
+            >
               <button style={styles.btnPrimary}>See Your Loyalty Map</button>
               <button style={styles.btnSecondary}>Calculate ROI</button>
             </div>
@@ -582,7 +598,7 @@ export default function RCDLandingPage() {
             maxWidth: "1280px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns:responsive("repeat(4,1fr)", "repeat(2,1fr)"),
+            gridTemplateColumns: responsive("repeat(4,1fr)", "repeat(2,1fr)"),
             //gridTemplateColumns: "repeat(4, 1fr)",
             gap: "2rem",
             textAlign: "center",
@@ -651,7 +667,6 @@ export default function RCDLandingPage() {
       <section id="problem" style={styles.section}>
         <h2
           style={{
-            
             fontSize: responsive("3rem", "2rem"),
             textAlign: "center",
             marginBottom: "1rem",
@@ -673,9 +688,7 @@ export default function RCDLandingPage() {
           Your loyalty program fails at retention AND acquisition
         </p>
 
-        <div
-          style={stack("1fr 1fr", "1fr")}
-        >
+        <div style={stack("1fr 1fr", "1fr")}>
           <div
             style={{
               ...styles.card,
@@ -826,9 +839,7 @@ export default function RCDLandingPage() {
           GPS Coordinates for Loyalty + Viral Sharing
         </h2>
 
-        <div
-          style={stack("1fr 1fr", "1fr")}
-        >
+        <div style={stack("1fr 1fr", "1fr")}>
           <div style={styles.card}>
             <div
               style={{
@@ -934,7 +945,13 @@ export default function RCDLandingPage() {
           Vector Positioning Meets Viral Growth
         </h2>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: responsive("2rem", "1rem") }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: responsive("2rem", "1rem"),
+          }}
+        >
           {[
             {
               num: "1",
@@ -969,7 +986,12 @@ export default function RCDLandingPage() {
           ].map((step, i) => (
             <div
               key={i}
-              style={{ display: "flex", gap: responsive("2rem", "1rem"), alignItems: "center", flexDirection: responsive("row", "row"),  }}
+              style={{
+                display: "flex",
+                gap: responsive("2rem", "1rem"),
+                alignItems: "center",
+                flexDirection: responsive("row", "row"),
+              }}
             >
               <div
                 style={{
@@ -997,7 +1019,9 @@ export default function RCDLandingPage() {
                   alignItems: "center",
                 }}
               >
-                <span style={{ fontSize: responsive("2rem", "1.5rem") }}>{step.icon}</span>
+                <span style={{ fontSize: responsive("2rem", "1.5rem") }}>
+                  {step.icon}
+                </span>
                 <div>
                   <h3
                     style={{
@@ -1035,7 +1059,7 @@ export default function RCDLandingPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: responsive("repeat(3,1fr)", "1fr"),
+            gridTemplateColumns: responsive("repeat(3, 1fr)", "1fr"),
             gap: responsive("1.5rem", "1rem"),
           }}
         >
@@ -1108,7 +1132,7 @@ export default function RCDLandingPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: responsive("repeat(3,1fr)", "1fr"),
+            gridTemplateColumns: responsive("repeat(3, 1fr)", "1fr"),
             gap: "2rem",
           }}
         >
@@ -1265,7 +1289,12 @@ export default function RCDLandingPage() {
           >
             🎯 Dual Guarantee
           </h3>
-          <p style={{ fontSize: responsive("1.125rem", "1rem"), color:"#616161" }}>
+          <p
+            style={{
+              fontSize: responsive("1.125rem", "1rem"),
+              color: "#616161",
+            }}
+          >
             110% Retention ROI + 3x Growth in 12 months or full refund
           </p>
         </div>
@@ -1284,7 +1313,13 @@ export default function RCDLandingPage() {
           Frequently Asked Questions
         </h2>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: responsive("1rem", ".75rem") }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: responsive("1rem", ".75rem"),
+          }}
+        >
           {[
             {
               q: "How does vector positioning work?",
@@ -1310,7 +1345,9 @@ export default function RCDLandingPage() {
                 }}
                 onClick={() => setActiveFAQ(activeFAQ === i ? null : i)}
               >
-                <h3 style={{ fontSize: responsive("1.125rem", "1rem") }}>{faq.q}</h3>
+                <h3 style={{ fontSize: responsive("1.125rem", "1rem") }}>
+                  {faq.q}
+                </h3>
                 <span
                   style={{
                     fontSize: "1.5rem",
@@ -1359,7 +1396,13 @@ export default function RCDLandingPage() {
           >
             Stop Choosing Between Retention and Growth.
           </h2>
-          <p style={{ fontSize:responsive("1.35rem", "1.15rem"), marginBottom: "1rem",color:"#616161" }}>
+          <p
+            style={{
+              fontSize: responsive("1.35rem", "1.15rem"),
+              marginBottom: "1rem",
+              color: "#616161",
+            }}
+          >
             Mathematics Gives You Both.
           </p>
           <p
